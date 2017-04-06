@@ -12,8 +12,13 @@ public class App {
 		//ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml");
 		ApplicationContext context = new FileSystemXmlApplicationContext("src/main/java/com/cave/spring/beans/beans.xml");
 		//cave.spring.5/src/main/java/com/cave/spring/beans/beans.xml
+		
 		Person person  = (Person)context.getBean("person");
-		person.speak();
+		System.out.println(person.toString());
+		//person.speak();
+		
+		Address address = (Address)context.getBean("address");
+		System.out.println(address.toString());
 		
 		((FileSystemXmlApplicationContext)context).close();
 		
