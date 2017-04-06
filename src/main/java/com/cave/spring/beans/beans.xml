@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
-	<bean id="person" class="com.cave.spring.Person"
-		scope="prototype">
-		<constructor-arg value="777" name="id" type="int"></constructor-arg>
+	<bean id="person" class="com.cave.spring.Person" scope="prototype"
+		init-method="onCreate">
+		<constructor-arg value="777" name="id" type="int">
+			
+		</constructor-arg>
 		<constructor-arg value='"Mary"' name="name" type="String"></constructor-arg>
 		<property name="taxId" value="12"></property>
 		<property name="address" ref="address"></property>
 	</bean>
 
-	<bean id="address" class="com.cave.spring.Address"
-		scope="prototype">
+	<bean id="address" class="com.cave.spring.Address" scope="prototype">
 		<constructor-arg name="street" value="6701 Eton Ave"
 			type="String">
 		</constructor-arg>
 		<constructor-arg name="postCode" type="String" value="91301"></constructor-arg>
 	</bean>
+	<bean id="fruitbasket" class="com.cave.spring.FruitBasket">
+		<constructor-arg name="basketName" type="String"
+			value="Basket Default Name">
+		</constructor-arg>
+		<constructor-arg name="fruits">
+			<list>
+				<value>apple</value>
+				<value>banana</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="logger" class="com.cave.spring.section4.Logger"></bean>
+
+	<bean id="filewriter" class="com.cave.spring.section4.FileWriter">
+	</bean>
+
+	<bean id="consolewriter" class="com.cave.spring.section4.ConsoleWriter">
+		<qualifier value="toconsole"></qualifier>
+	</bean>
+
+	<bean id="consolewriter2" class="com.cave.spring.section4.ConsoleWriter">
+	</bean>
+
+	<context:annotation-config></context:annotation-config>
 </beans>

@@ -11,6 +11,7 @@ public class Person {
 	}
 	
 	public Person(int id, String name) {
+		//System.out.println("Person constructor! " );
 		this.id = id;
 		this.name = name;
 	}
@@ -20,6 +21,7 @@ public class Person {
 	}
 
 	public void setTaxId(int taxId) {
+		//System.out.println("Person setTaxId! " );
 		this.taxId = taxId;
 	}
 
@@ -31,6 +33,10 @@ public class Person {
 		this.address = address;
 	}
 
+	public void onCreate() {
+		System.out.println("Person created: " + this );
+	}
+	
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + ", address=" + address + "]";
