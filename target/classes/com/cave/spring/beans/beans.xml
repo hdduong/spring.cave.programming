@@ -4,14 +4,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="person" class="com.cave.spring.Person">
+	<bean id="person" class="com.cave.spring.Person"
+		scope="prototype">
 		<constructor-arg value="777" name="id" type="int"></constructor-arg>
 		<constructor-arg value='"Mary"' name="name" type="String"></constructor-arg>
 		<property name="taxId" value="12"></property>
 		<property name="address" ref="address"></property>
 	</bean>
 
-	<bean id="address" class="com.cave.spring.Address">
+	<bean id="address" class="com.cave.spring.Address"
+		scope="prototype">
 		<constructor-arg name="street" value="6701 Eton Ave"
 			type="String">
 		</constructor-arg>

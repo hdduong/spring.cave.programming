@@ -16,12 +16,13 @@ public class App {
 		//cave.spring.5/src/main/java/com/cave/spring/beans/beans.xml
 		
 		Person person  = (Person)context.getBean("person");
-		System.out.println(person.toString());
 		
 		person.setTaxId(1234);
-		
+		person.getAddress().setPostCode("01609");
 		
 		Person person2  = (Person)context.getBean("person");
+		
+		System.out.println(person.toString());
 		System.out.println(person2.toString());
 		
 		//person.speak();

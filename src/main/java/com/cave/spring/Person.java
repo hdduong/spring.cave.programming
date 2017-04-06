@@ -23,6 +23,9 @@ public class Person {
 		this.taxId = taxId;
 	}
 
+	public Address getAddress(){
+		return this.address;
+	}
 	
 	public void setAddress(Address address) {
 		this.address = address;
